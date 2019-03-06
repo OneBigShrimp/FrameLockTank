@@ -1,0 +1,9 @@
+*.suo
+/Library
+/ProjectSettings
+/Temp
+/obj
+/Assets/Plugins
+/Assets/UnityVS
+/Assets/UnityVS.meta
+/Assets/Src/**/*.meta

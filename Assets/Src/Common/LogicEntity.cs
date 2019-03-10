@@ -5,6 +5,8 @@ using System;
 
 public class LogicEntity
 {
+    static int AutoKey = 0;
+
     /// <summary>
     /// 逻辑实体对应的场景gameobject,可空
     /// </summary>
@@ -37,18 +39,24 @@ public class LogicEntity
 
 
 
-    public LogicEntity(GameObject go)
+    public LogicEntity(GameObject go, int key = 0)
     {
-        this.EntityKey = AutoKey.Next;
+        this.EntityKey = AutoKey++;
         this.IsDestroy = false;
         this._sceneGo = go;
         allComponents = new List<LogicComponentBase>();
     }
 
-    public LogicEntity(string resPath)
+    public LogicEntity(string resPath, int key = 0)
         : this((GameObject)null)
     {
         //todo: 异步加载资源
+    }
+
+    //客户端实体自增Key从100开始,前面的用于服务器开始游戏时指定
+    public void OnGameStart()
+    {
+        AutoKey = 100;
     }
 
     public void SetLifeTime(int value)

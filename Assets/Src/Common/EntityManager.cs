@@ -33,7 +33,7 @@ public class EntityManager : ILogicTick
         allEntitys.Clear();
     }
 
-    public LogicEntity CreateEntityByObj(GameObject obj = null)
+    public LogicEntity CreateEntityByObj(GameObject obj = null, int key = 0)
     {
         LogicEntity entity = new LogicEntity(obj);
         allEntitys.Add(entity.EntityKey, entity);

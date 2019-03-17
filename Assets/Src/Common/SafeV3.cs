@@ -142,8 +142,15 @@ public struct SafeV3
         return new SafeV3() { _x = v3._x * f, _y = v3._y * f, _z = v3._z * f };
     }
 
+    public static bool operator ==(SafeV3 a, SafeV3 b)
+    {
+        return a.x == b.x && a.y == b.y && a.z == b.z;
+    }
 
-
+    public static bool operator !=(SafeV3 a, SafeV3 b)
+    {
+        return !(a == b);
+    }
 }
 
 /// <summary>

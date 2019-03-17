@@ -2,24 +2,24 @@
 using System;
 using System.Collections.Generic;
 
-class AttrInfo
+public class AttrInfo
 {
     public int AttrType;
     public float AttrValue;
 }
 
-class EntityInitInfo : ISerObj
+public class PlayerInitInfo : ISerObj
 {
-    public int EntityKey;
+    public int Id;
+    public string Name;
     public int AttrTemplateId;
-    public string EntityName;
 }
 
-class SGameStart : IProtocol
+public class SGameStart : IProtocol
 {
     public int RandomSeed;
-    public EntityInitInfo YourInfo;
-    public EntityInitInfo[] OtherInfos;
+    public int YourPlayerId;
+    public PlayerInitInfo[] AllInfos;
 
     public void Process(ILinker linker, object args)
     {

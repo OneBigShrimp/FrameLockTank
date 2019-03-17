@@ -16,7 +16,6 @@
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-   <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -28,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,7 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -65,36 +64,39 @@
     <Compile Include="Assets\Src\Cfg\ConfigManager.cs" />
     <Compile Include="Assets\Src\Cfg\SkillCfg.cs" />
     <Compile Include="Assets\Src\Common\AllEvents.cs" />
-    <Compile Include="Assets\Src\Common\EntityManager.cs" />
     <Compile Include="Assets\Src\Common\ILogicTick.cs" />
-    <Compile Include="Assets\Src\Common\LogicEntity.cs" />
     <Compile Include="Assets\Src\Common\SafeV3.cs" />
+    <Compile Include="Assets\Src\Entity\EntityManager.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\AttrComponent.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\BuffComponent.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\BulletComponent.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\EffectReceiver.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\LogicAnim.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\LogicComponentBase.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\LogicMove.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\LogicTransform.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\SkillComponent.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\StateMachine\FreeState.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\StateMachine\MoveState.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\StateMachine\SkillState.cs" />
+    <Compile Include="Assets\Src\Entity\LogicComponent\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Src\Entity\LogicEntity.cs" />
     <Compile Include="Assets\Src\Framework\AutoKey.cs" />
     <Compile Include="Assets\Src\Framework\EventManager.cs" />
     <Compile Include="Assets\Src\GameLooper.cs" />
     <Compile Include="Assets\Src\InputController.cs" />
-    <Compile Include="Assets\Src\LogicComponent\AttrComponent.cs" />
-    <Compile Include="Assets\Src\LogicComponent\BuffComponent.cs" />
-    <Compile Include="Assets\Src\LogicComponent\BulletComponent.cs" />
-    <Compile Include="Assets\Src\LogicComponent\EffectReceiver.cs" />
-    <Compile Include="Assets\Src\LogicComponent\LogicAnim.cs" />
-    <Compile Include="Assets\Src\LogicComponent\LogicComponentBase.cs" />
-    <Compile Include="Assets\Src\LogicComponent\LogicMove.cs" />
-    <Compile Include="Assets\Src\LogicComponent\LogicTransform.cs" />
-    <Compile Include="Assets\Src\LogicComponent\SkillComponent.cs" />
-    <Compile Include="Assets\Src\LogicComponent\StateMachine\FreeState.cs" />
-    <Compile Include="Assets\Src\LogicComponent\StateMachine\MoveState.cs" />
-    <Compile Include="Assets\Src\LogicComponent\StateMachine\SkillState.cs" />
-    <Compile Include="Assets\Src\LogicComponent\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Src\LogicGameObject.cs" />
+    <Compile Include="Assets\Src\Player\HostPlayer.cs" />
+    <Compile Include="Assets\Src\Player\OtherPlayer.cs" />
+    <Compile Include="Assets\Src\Player\PlayerBase.cs" />
     <Compile Include="Assets\Src\Procotols\CProtocols.cs" />
     <Compile Include="Assets\Src\Procotols\SProtocols.cs" />
     <None Include="Assets\smcs.rsp" />
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/MyDownloads/FrameLockTank/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/MyDownloads/FrameLockTank/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>D:/MyDownloads/FrameLockTank/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -291,6 +293,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="MyNetManager">
+      <HintPath>D:/MyDownloads/FrameLockTank/Assets/Plugins/MyNetManager.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/gaoshan003/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
@@ -299,9 +304,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/gaoshan003/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="MyNetManager">
-      <HintPath>D:/MyDownloads/FrameLockTank/Assets/Plugins/MyNetManager.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

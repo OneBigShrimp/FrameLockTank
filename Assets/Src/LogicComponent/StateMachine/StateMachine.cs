@@ -18,6 +18,8 @@ public class StateMachine : LogicComponentBase
         return curState.State;
     }
 
+    
+
     public bool TryChangeState(EntityState state, StateArgsBase args)
     {
         if (state == GetCurState())

@@ -2,11 +2,6 @@
 using System;
 using System.Collections.Generic;
 
-public class AttrInfo
-{
-    public int AttrType;
-    public float AttrValue;
-}
 
 public class PlayerInitInfo : ISerObj
 {
@@ -20,6 +15,17 @@ public class SGameStart : IProtocol
     public int RandomSeed;
     public int YourPlayerId;
     public PlayerInitInfo[] AllInfos;
+
+    public void Process(ILinker linker, object args)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class SPlayerMove : IProtocol
+{
+    public int EulerY;
+
 
     public void Process(ILinker linker, object args)
     {

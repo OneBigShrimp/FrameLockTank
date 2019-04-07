@@ -13,8 +13,6 @@ public class LogicEntity
     /// </summary>
     GameObject _sceneGo;
 
-    List<EntityCmdBase> allCmds = new List<EntityCmdBase>();
-
     List<LogicComponentBase> allComponents;
 
     int lifeTime = -1;
@@ -151,10 +149,6 @@ public class LogicEntity
 
 }
 
-public class EntityCmdBase
-{
-
-}
 
 
 public class SFrameCtrl
